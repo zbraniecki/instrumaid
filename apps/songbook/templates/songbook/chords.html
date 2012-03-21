@@ -12,7 +12,7 @@ p.verse {
   font-size: 14px;
 }
 
-p.ref {
+p.refrain {
   font-family: Courier New, monospace;
   white-space: pre;
   letter-spacing: 0px;
@@ -40,20 +40,30 @@ color: #a0a0ff;
 
 .l3 {
   background-color: green;
-}
+  }
+
+  #src, #src2, #src3 {
+    display: none
+  }
 {% endblock %}
 
 {% block content %}
 <script type="text/javascript" src="/static/chords.js"></script>
-<script type="text/javascript" src="/static/crd.js"></script>
+<script type="text/javascript" src="/static/crd2.js"></script>
 <div id="ui">
   <button id="play">Play</button>
   <select id="view">
     <option value="1">typ 1</option>
     <option value="2">typ 2</option>
   </select>
-  <select>
-    <option>expanded</option>
-    <option>shorter</option>
+  <select id="expand">
+    <option value="true">expanded</option>
+    <option value="false">shorter</option>
+  </select>
 </div>
+<br/>
+<hr/>
+<textarea id="src" style="width: 600px; height: 400px"></textarea>
+<textarea id="src2" style="width: 600px; height: 400px"></textarea>
+<textarea id="src3" style="width: 600px; height: 400px"></textarea>
 {% endblock %}

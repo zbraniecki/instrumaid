@@ -4,7 +4,7 @@ var Reader = function() {
 Reader.prototype = {
   text: null,
   parse: function() {
-    var song = {directives: {}, lyrics: [], chords: []};
+    var crd = [];
     var token;
     //this.getWS();
     while (token = this.getToken()) {
@@ -14,23 +14,23 @@ Reader.prototype = {
         case 'chord':
           break;
         case 'lyrics':
-          song.lyrics.push(token['value']);
+          crd.push(token);
           break;
         case 'ws':
           break;
       }
     }
-    return song;
+    return crd;
   },
   getToken: function() {
     if (!this.text.length)
       return false;
     if (this.text[0] == '[')
-       return this.getChord();
+      return this.getChord();
     else if (this.text[0] == '{')
-       return this.getDirective();
+      return this.getDirective();
     else
-        return this.getLyrics();
+      return this.getLyrics();
   },
   getWS: function() {
     var res = /^\s+/g.exec(this.text);
@@ -45,6 +45,6 @@ Reader.prototype = {
       ptr += 1;
     var buffer = this.text.substr(0, ptr)
     this.text = this.text.substr(ptr);
-    return {'type': 'lyrics', 'value': buffer}
+    return {'type': 'lyrics', 'content': buffer}
   }
 }
