@@ -1,0 +1,59 @@
+{% extends "songbook/base.html" %}
+{% block inline_css %}
+div.song {
+  margin: 3em;
+}
+
+p.verse {
+  font-family: Courier New, monospace;
+  white-space: pre;
+  letter-spacing: 0px;
+  word-spacing: 0px;
+  font-size: 14px;
+}
+
+p.ref {
+  font-family: Courier New, monospace;
+  white-space: pre;
+  letter-spacing: 0px;
+  word-spacing: 0px;
+  font-size: 14px;
+  margin-left: 30px;
+}
+span.line {
+  line-height: 30px;
+}
+
+.chord {
+display: inline;
+position: absolute;
+color: #a0a0ff;
+}
+
+.l1 {
+  background-color: red;
+  }
+
+.l2 {
+  background-color: yellow;
+  }
+
+.l3 {
+  background-color: green;
+}
+{% endblock %}
+
+{% block content %}
+<script type="text/javascript" src="/static/chords.js"></script>
+<script type="text/javascript" src="/static/crd.js"></script>
+<div id="ui">
+  <button id="play">Play</button>
+  <select id="view">
+    <option value="1">typ 1</option>
+    <option value="2">typ 2</option>
+  </select>
+  <select>
+    <option>expanded</option>
+    <option>shorter</option>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "songbook/base.html" %}
+{% block inline_css %}
+{% endblock %}
+
+{% block content %}
+
+<script type="text/javascript" src="/static/tabs.js"></script>
+<svg id="svgelem" height="200" width="800" xmlns="http://www.w3.org/2000/svg">
+  <line x1="0" y1="10" x2="500" y2="10" stroke="#999" stroke-width="1"/>
+  <line x1="0" y1="20" x2="500" y2="20" stroke="#999" stroke-width="1"/>
+  <line x1="0" y1="30" x2="500" y2="30" stroke="#999" stroke-width="1"/>
+  <line x1="0" y1="40" x2="500" y2="40" stroke="#999" stroke-width="1"/>
+  <line x1="0" y1="50" x2="500" y2="50" stroke="#999" stroke-width="1"/>
+  <line x1="0" y1="60" x2="500" y2="60" stroke="#999" stroke-width="1"/>
+</svg>
+<div id="ui">
+  <button id="play">Play</button>
+  <select id="view">
+    <option value="1">typ 1</option>
+    <option value="2">typ 2</option>
+  </select>
+  <select>
+    <option>expanded</option>
+    <option>shorter</option>
+</div>
+{% endblock %}
+
