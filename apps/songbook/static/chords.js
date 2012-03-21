@@ -174,6 +174,10 @@ function insertSong(song) {
   return hSong;
 }
 
+function clearSong() {
+  $(".song").remove();
+}
+
 function clearChords() {
   $(".chord").remove();
 }
@@ -241,9 +245,17 @@ function getSongFromAST(ast) {
 }
 
 $(document).ready(function() {
-  $("#play").on('click', function() {
-    charSize.width = getCharWidth();
-    loadFile("/static/song.crd");
+  charSize.width = getCharWidth();
+  $("#song").on('change', function() {
+    var val = $("#song").val();
+    if (val == "") {
+      clearChords();
+      clearSong();
+    } else {
+      clearChords();
+      clearSong();
+      loadFile("/static/songs/"+val);
+    }
   });
   $("#view").on('change', function() {
     if (App.viewMode == $('#view').val())
