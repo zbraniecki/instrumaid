@@ -32,6 +32,8 @@ Reader.prototype = {
     tLine = this.trim(line);
     if (tLine.length == 0)
       return
+    if (tLine[0] == '[')
+      return
     if (this.patterns['chord'].test(line))
       return this.getChordLine(line);
     else
